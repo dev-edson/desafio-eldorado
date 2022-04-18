@@ -1,16 +1,25 @@
 class Device {
-    constructor(category, color, partnumber) {
-        this._category = category
+    constructor(category_id, color, partnumber, id = null) {
+        this._id = id
+        this._category_id = category_id
         this._color = (color !== '' && color !== null && color !== undefined) ? color : 'Indefinida'
-        this.partnumber = partnumber
+        this._partnumber = partnumber
     }
 
-    getCategory() {
-        return this._category
+    getId() {
+        return this._id
     }
 
-    setCategory(category) {
-        this._category = category
+    setId(id) {
+        this._id = id
+    }
+
+    getCategory_id() {
+        return this._category_id
+    }
+
+    setCategory_id(category_id) {
+        this._category_id = category_id
     }
 
     getColor() {
@@ -18,14 +27,14 @@ class Device {
     }
 
     setColor(color) {
-        this._color = color
+        this._color = (color !== '' && color !== null && color !== undefined) ? color : 'Indefinida'
     }
 
     getPartnumber() {
         return this._partnumber
     }
 
-    setColor(partnumber) {
+    setPartNumber(partnumber) {
         this._partnumber = partnumber
     }
 
