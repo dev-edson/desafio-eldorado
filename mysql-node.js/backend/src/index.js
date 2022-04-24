@@ -1,60 +1,49 @@
-const mysql = require('mysql2')
+//const Device = require('src/models/Device')
+const Device = require('./models/Device')
+const DeviceRepository = require('./repositories/DeviceRepository')
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'fullstack',
-    database: 'device_manager',
-    port: '3307'
-})
+async function main() {
+    let repositorio = new DeviceRepository()
 
-// Criar uma tabela
-const criacaoTabelaCategories = `
-CREATE TABLE IF NOT EXISTS categories ( 
-    category_id INT AUTO_INCREMENT PRIMARY KEY, 
-    category_name VARCHAR(128) NOT NULL )
-    `
-connection.query(criacaoTabelaCategories, (err, result, fields) => {
-    console.log('err', err)
-    console.log('result', result)
-    console.log('fields', fields)
-})
 
-// Criar uma tabela
-const criacaoTabelaDevices = `
-CREATE TABLE IF NOT EXISTS devices ( 
-    device_id INT AUTO_INCREMENT PRIMARY KEY,
-    category_id INT,
-    device_partnumber INT,
-    device_color VARCHAR(16) NOT NULL,
-    CONSTRAINT fk_categories FOREIGN KEY (category_id) REFERENCES categories(category_id) 
-  )
-`
-connection.query(criacaoTabelaDevices, (err, result, fields) => {
-    console.log('err', err)
-    console.log('result', result)
-    console.log('fields', fields)
-})
+    const devices = await repositorio.listarDevices()
+    //repositorio.listarDevices(function (devices) {
+    if (devices) {
+        console.log('devices', devices)
+    } else {
+        console.log('Nemhum device foi encontrado')
+    }
+    //})
 
-//Inserir dados na tabela
-const SelecaoDadosSql = `
-SELECT * FROM devices
-`
-connection.query(SelecaoDadosSql, (err, result, fields) => {
-    console.log('err', err)
-    console.log('result', result)
-    console.log('fields', fields)
-})
 
-//Selecionar dados na tabela
-//const criacaoDadosSql = `
-//INSERT INTO devices (category_id, device_partnumber, device_color)
-//VALUES (1, 123457, 'Preta')
-//`
-//connection.query(criacaoDadosSql, (err, result, fields) => {
-//    console.log('err', err)
-//    console.log('result', result)
-//    console.log('fields', fields)
-//})
+    //Incluir device
+    //let device2 = new Device(2, 123458, 'Azul')
+    //let device3 = new Device(2, 123458, 'Preta')
+    //let device4 = new Device(2, 123458, 'Vermelha')
 
-connection.end()
+
+    //repositorio.salvarDevice(device3, result => {
+    //    console.log('Inseriu com sucesso', result)
+    //})
+
+    //Remover device
+    //repositorio.removerDevice(2, result => console.log('Deletou o item', result))
+    //repositorio.removerDevice(3)
+
+    //Alterar device
+    //let device = new Device(1, 123457, 'Branca',1)
+    //repositorio.editarDevice(device)
+
+    //Filtrar devices
+    //    repositorio.filtrarDevices({ category: 2, partnumber: 123458 }, devices => {
+    //        console.log(devices)
+
+    //        repositorio.filtrarDevices({ partnumber: 123460, color: 'Preta' }, devices => {
+    //            console.log(devices)
+    //        })
+
+    //    })
+
+}
+
+main()

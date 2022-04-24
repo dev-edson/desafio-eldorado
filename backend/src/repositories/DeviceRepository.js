@@ -28,23 +28,23 @@ class DeviceRepository {
         }
     }
 
-    listarDevices(callback) {
-        this._bancoDeDados.all(
-            'SELECT * FROM devices',
-            function (err, rows) {
-                let devicesFormatados = rows.map(device =>
-                    new Device(
-                        device.category_id,
-                        device.device_color,
-                        device.device_partnumber,
-                        device.device_id
-                    )
-                )
+    //listarDevices(callback) {
+    //    this._bancoDeDados.all(
+    //        'SELECT * FROM devices',
+    //        function (err, rows) {
+    //            let devicesFormatados = rows.map(device =>
+    //                new Device(
+    //                    device.category_id,
+    //                    device.device_color,
+    //                    device.device_partnumber,
+    //                    device.device_id
+    //                )
+    //            )
 
-                callback([...devicesFormatados])
-            }
-        )
-    }
+    //            callback([...devicesFormatados])
+    //        }
+    //    )
+
 
     filtrarDevicesPorAno(ano, callback) {
         this._bancoDeDados.all(
