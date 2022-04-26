@@ -1,37 +1,26 @@
-const Device = require('./models/Device')
-const DeviceRepository = require('./repositories/DeviceRepository')
+//index.js do erc
+const CategoryRepository = require('./repositories/CategoryRepository')
 
-function main() {
-    let repositorio = new DeviceRepository();
+const Device = require('./database/models/device')
 
-    let device = new Device(1, 'Preta', 123456)
-    let device2 = new Device(2, 'Preta', 524525)
-    let device3 = new Device(3, 'Azul', 452525)
+async function main() {
+    const categoryRepository = new CategoryRepository()
 
-    //Sdicionar um device
-    repositorio.salvarDevice(device)
-    repositorio.salvarDevice(device2)
-    repositorio.salvarDevice(device3)
+    //await categoryRepository.add({ name: 'intermediaria' })
 
-    //Listar devices
-    repositorio.listarDevices(function (devices) {
-        console.log(devices)
+    //Inserir um novo device
+    //const device = await Device.create({
+    //    category_id: 1,
+    //    color: 'Amarela',
+    //    partnumber: 123456
+    //})
 
-        for (const device of devices) {
-            //remover um device
-            repositorio.removerDevice(device.getId())
+    //Seleciona os devices
+    //const devices = await Device.findAll()
 
-            //Editar um device
-            device.setCategory_id(2)
-            repositorio.editarDevice(device)
-        }
-    })
-
-    repositorio.filtrarDevicesPorAno(2021, devices => {
-        console.log(devices)
-    })
-
-
-    repositorio.removerDevice(device)
+    const devices = await Device.findAll({ include: [{ model: Category }] })
+    console.log(devices)
 }
+
+
 main()

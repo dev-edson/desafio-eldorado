@@ -1,7 +1,7 @@
 {
   "name": "desafio-eldorado",
   "version": "1.0.0",
-  "description": "",
+  "description": "Desafio Final Eldorado",
   "main": "index.js",
   "scripts": {
     "start": "node backend/src/index.js",
@@ -11,6 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0",
     "sqlite3": "^5.0.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-edson/desafio-eldorado.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dev-edson/desafio-eldorado/issues"
+  },
+  "homepage": "https://github.com/dev-edson/desafio-eldorado#readme"
 }

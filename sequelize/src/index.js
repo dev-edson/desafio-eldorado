@@ -1,12 +1,15 @@
 const Device = require('./device')
+const usuario = require('./usuario')
 
+const database = require('./database')
 async function main() {
+    // await database.sync()
     //Inserir um novo Device
-    //    const Device = await Device.create({
-    //        category_id: 2,
-    //        device_color: 'Amarela',
-    //        device_partnumber: 1234562,
-    //    })
+    const Device = await Device.create({
+        category_id: 1,
+        device_color: 'Amarela',
+        device_partnumber: 123456,
+    })
 
     //console.log(device.device_id)
 
@@ -27,7 +30,7 @@ async function main() {
     //    }
     //})
 
-    console.log('Devices', devices[0].dataValues)
+    //console.log('Devices', devices[0].dataValues)
 
 }
 

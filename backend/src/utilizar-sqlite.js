@@ -28,10 +28,10 @@ bancoDeDados.run(`
 `, tratarErro)
 
 //Inserção de valores na tabela
-//bancoDeDados.run(
-//    "INSERT INTO devices (category_id, device_color, device_partnumber) VALUES (1, 'Preta', 123456)",
-//    tratarErro
-//)
+bancoDeDados.run(
+    "INSERT INTO devices (category_id, device_color, device_partnumber) VALUES (1, 'Preta', 123456)",
+    tratarErro
+)
 
 //bancoDeDados.run(
 //    `INSERT INTO devices 
