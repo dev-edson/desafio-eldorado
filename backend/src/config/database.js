@@ -1,5 +1,5 @@
 module.exports = {
-    database: 'device_manager2',
+    database: 'device_manager',
     username: 'root',
     password: 'fullstack',
     dialect: 'mysql',

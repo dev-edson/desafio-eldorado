@@ -1,9 +1,9 @@
-const Category = require('../database/models/Category')
+const CategoryModel = require('../database/models/CategoryModel')
 
 class CategoryRepository {
-    async add(category) {
+    async add(ategory) {
         try {
-            return await Category.create(category)
+            return await CategoryModel.create(category)
         } catch (error) {
             console.log('Erro ao salvar uma categoria -', error.message)
         }
@@ -11,16 +11,16 @@ class CategoryRepository {
 
     async selectAll() {
         try {
-            return await Category.findAll()
+            return await CategoryModel.findAll()
         } catch (error) {
             console.log('Erro ao selecionar varias categoria -', error.message)
         }
     }
 
-    async selectByFilter(filtro) {
+    async selectByFilter(filter) {
         try {
-            return await Category.findAll({
-                where: filtro
+            return await CategoryModel.findAll({
+                where: filter
             })
         } catch (error) {
             console.log('Erro ao selecionar por filtro varias categoria -', error.message)
@@ -30,7 +30,7 @@ class CategoryRepository {
 
     async update(category) {
         try {
-            return await Category.create(category)
+            return await category.save()
         } catch (error) {
             console.log('Erro ao editar uma categoria -', error.message)
         }
@@ -39,7 +39,7 @@ class CategoryRepository {
 
     async remove(id) {
         try {
-            return await Category.destroy({
+            return await CategoryModel.destroy({
                 where: {
                     id
                 }

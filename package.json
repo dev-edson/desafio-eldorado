@@ -4,18 +4,24 @@
   "description": "Desafio Final Eldorado",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon backend/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-database": "npx sequelize-cli db:create",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate-revert": "npx sequelize-cli db:migrate:undo",
+    "seed": "npx sequelize-cli db:seed:all",
+    "seed-revert": "npx sequelize-cli db:seed:undo"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
     "sequelize": "^6.19.0",
     "sqlite3": "^5.0.3"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dev-edson/desafio-eldorado.git"
