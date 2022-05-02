@@ -1,6 +1,6 @@
-const { response } = require('express')
+const express = require('express')
 
-const DevicesRoute = require('./routes/CarrosRoute4')
+const DevicesRoutes = require('./routes/DevicesRoutes')
 
 //Iniciar express
 const app = express()
@@ -8,7 +8,8 @@ const app = express()
 //Configursr JSON para express
 app.use(express.json())
 
-app.use('/Devices', DevicesRoute)
+//Configurar rotas
+app.use('/Devices', DevicesRoutes)
 
 //Iniciar servidor
 app.listen(3333, () => {

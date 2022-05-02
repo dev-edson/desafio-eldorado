@@ -1,7 +1,7 @@
-const { Router } = require('express')
+const express = require('express')
 const DevicesControllers = require('../controllers/DevicesController')
 
-const router = new Router()
+const router = express.Router()
 
 //Buscar devices
 router.get('/', DevicesControllers.get)
@@ -18,4 +18,4 @@ router.put('/:id', DevicesControllers.put)
 //Deletar um device
 router.delete('/:id', DevicesControllers.delete)
 
-exports = router
+module.exports = router
