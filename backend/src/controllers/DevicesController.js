@@ -1,3 +1,5 @@
+const ResponseBuilder = require('../utils/ResponseBuilder')
+
 let devices = [
     { id: 1, partnumber: 1234560, cor: 'Amarela' },
     { id: 2, partnumber: 1234561, cor: 'Azul' },
@@ -25,9 +27,14 @@ class DevicesController {
                     }
                 })
             }
-            return response.status(200).json({ devices: devicesFiltrados })
+
+            const ResponseContent = ResponseBuilder.createResponseContent({ devicesFiltrados })
+
+            return response.status(200).json(ResponseContent)
         } catch (error) {
-            return response.status(400).json({ mensagem: error.message })
+            const ResponseErrors = ResponseBuilder.createResponseErrors([error.message])
+
+            return response.status(400).json(ResponseErrors)
         }
     }
 
