@@ -10,3 +10,8 @@ Comando para reverter a última seed: npx sequelize-cli db:seed:undo
 
 Comando para instalar o express: npm install express
 Comando para instalar o nodemon: npm install nodemon
+
+Comando parea instalar o jest: npm install jest --save-dev
+Comando para iniciar um projeto jest: npx jest --init
+
+Alteração no arquivo jest.config.js: testMatch: [ "**/tests/**/*.js" ],

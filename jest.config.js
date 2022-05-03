@@ -11,16 +11,16 @@ module.exports = {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "C:\\Users\\gabri\\AppData\\Local\\Temp\\jest",
+  // cacheDirectory: "C:\\Users\\edson\\AppData\\Local\\Temp\\jest",
 
-  // Automatically clear mock calls, instances and results before every test
+  // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: [ '<rootDir>/src/**/*.js' ],
+  // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -34,10 +34,12 @@ module.exports = {
   coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  coverageReporters: [
-    'text-summary',
-    'lcov'
-  ],
+  // coverageReporters: [
+  //   "json",
+  //   "text",
+  //   "lcov",
+  //   "clover"
+  // ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -47,6 +49,11 @@ module.exports = {
 
   // Make calling deprecated APIs throw helpful error messages
   // errorOnDeprecated: false,
+
+  // The default configuration for fake timers
+  // fakeTimers: {
+  //   "enableGlobally": false
+  // },
 
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
@@ -71,6 +78,8 @@ module.exports = {
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
+  //   "mjs",
+  //   "cjs",
   //   "jsx",
   //   "ts",
   //   "tsx",
@@ -161,12 +170,6 @@ module.exports = {
 
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
-
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  // testURL: "http://localhost",
-
-  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  // timers: "real",
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon backend/src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "create-database": "npx sequelize-cli db:create",
     "migrate": "npx sequelize-cli db:migrate",
     "migrate-revert": "npx sequelize-cli db:migrate:undo",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/dev-edson/desafio-eldorado/issues"
   },
-  "homepage": "https://github.com/dev-edson/desafio-eldorado#readme"
+  "homepage": "https://github.com/dev-edson/desafio-eldorado#readme",
+  "devDependencies": {
+    "jest": "^28.0.3"
+  }
 }
