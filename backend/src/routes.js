@@ -1,6 +1,8 @@
-const DevicesRoutes = require('./routes/DevicesRoutes')
+const DeviceRoutes = require('./routes/DeviceRoutes')
 
 //Configurar rotas
-exports.registerRoutes = (app) => {
-    app.use('/Devices', DevicesRoutes)
+const registerRoutes = (app) => {
+    app.use('/Devices', DeviceRoutes)
 }
+
+module.exports = { registerRoutes }

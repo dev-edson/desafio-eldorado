@@ -1,4 +1,4 @@
-const { createResponseContent, createResponseErrors } = require('../src/responseBuilder')
+const { createResponseContent, createResponseErrors } = require('../../src/utils/responseBuilder')
 
 describe('Create response API', () => {
   it('Create a response with content', () => {
